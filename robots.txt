@@ -1,0 +1,43 @@
+# AHR Mechanical Inc. - Robots.txt
+# Syracuse, NY HVAC, Plumbing, Electrical, Refrigeration, Gas Piping Contractor
+# Allow all search engines to crawl the entire site for maximum visibility
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /locations.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# AI/LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap location
+Sitemap: https://ahrcny.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin or utility files (if any exist in future)
+Disallow: /submit-application.php
+Disallow: /form_debug.log
+Disallow: /php_errors.log
+Disallow: /*.php$
+

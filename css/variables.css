@@ -1,0 +1,110 @@
+/* AHR Mechanical Inc. - Brand Variables */
+
+:root {
+    /* Primary Brand Colors */
+    --navy: #18233B;
+    --electric-blue: #2756FF;
+    --crimson: #D62828;
+    --silver: #E9EEF5;
+    --ink: #0B1220;
+    
+    /* Extended Palette */
+    --navy-dark: #0D1522;
+    --navy-light: #2A3D5F;
+    --blue-dark: #1E42CC;
+    --blue-light: #4B74FF;
+    --crimson-dark: #B01F1F;
+    --crimson-light: #E84747;
+    --silver-dark: #D1D9E6;
+    --silver-light: #F5F8FC;
+    --white: #FFFFFF;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, rgba(11, 18, 32, 0.71) 0%, rgba(24, 35, 59, 0.64) 100%);
+    --gradient-navy: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    --gradient-blue: linear-gradient(135deg, var(--electric-blue) 0%, var(--blue-light) 100%);
+    --gradient-crimson: linear-gradient(135deg, var(--crimson-dark) 0%, var(--crimson) 100%);
+    
+    /* Typography */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Font Weights */
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    
+    /* Font Sizes */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+    --text-5xl: 3rem;        /* 48px */
+    --text-6xl: 3.75rem;     /* 60px */
+    --text-7xl: 4.5rem;      /* 72px */
+    
+    /* Spacing Scale */
+    --space-1: 0.25rem;      /* 4px */
+    --space-2: 0.5rem;       /* 8px */
+    --space-3: 0.75rem;      /* 12px */
+    --space-4: 1rem;         /* 16px */
+    --space-5: 1.25rem;      /* 20px */
+    --space-6: 1.5rem;       /* 24px */
+    --space-8: 2rem;         /* 32px */
+    --space-10: 2.5rem;      /* 40px */
+    --space-12: 3rem;        /* 48px */
+    --space-16: 4rem;        /* 64px */
+    --space-20: 5rem;        /* 80px */
+    --space-24: 6rem;        /* 96px */
+    --space-32: 8rem;        /* 128px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-blue: 0 10px 30px -5px rgba(39, 86, 255, 0.3);
+    --shadow-crimson: 0 10px 30px -5px rgba(214, 40, 40, 0.3);
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;    /* 4px */
+    --radius-md: 0.5rem;     /* 8px */
+    --radius-lg: 0.75rem;    /* 12px */
+    --radius-xl: 1rem;       /* 16px */
+    --radius-2xl: 1.5rem;    /* 24px */
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+    
+    /* Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal: 400;
+    --z-overlay: 500;
+    
+    /* Container */
+    --container-max: 1280px;
+    --container-padding: var(--space-6);
+    
+    /* Stripe Accent Angle */
+    --stripe-angle: -5deg;
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Could add dark mode overrides here */
+    }
+}
