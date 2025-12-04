@@ -46,3 +46,56 @@
     .container:hover {
       transform: translateY(-2px);
     }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cloud 10 Hackathon</h1>
+    <p>Welcome to the demo page. The site has been restored and is fully operational.</p>
+    <button class="btn" id="actionBtn">Launch Demo</button>
+    <p id="output" style="margin-top: 1.5rem; font-size: 0.9rem; min-height: 1.2em;"></p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('actionBtn');
+    const output = document.getElementById('output');
+
+    btn.addEventListener('click', () => {
+      output.textContent = "Initializing system... Done! 🚀";
+      output.style.color = "var(--primary)";
+    });
+  </script>
+</body>
+</html>
