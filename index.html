@@ -7,155 +7,38 @@
   <style>
     /* ========== GLOBAL STYLES (AI MAY UPDATE IF REQUESTED) ========== */
     :root {
-      --primary: #1b6dc1;
-      --accent: #ee8339;
-      --bg: #f5f7fb;
-      --text: #151c23;
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #f97316;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --text-light: #64748b;
+      --card-bg: #ffffff;
     }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
+      line-height: 1.6;
     }
 
     main {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
 
     button {
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     /* ========== AI-EDITABLE: HERO STYLES ========== */
     /* AI: You may update styles in this block when changing hero appearance. */
     #hero {
-      padding: 3rem 2rem;
-      border-radius: 1rem;
-      background: white;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-      text-align: center;
-    }
-
-    #hero-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    #hero-subtitle {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
-    }
-
-    #hero-cta {
-      padding: 0.9rem 1.8rem;
-      border-radius: 999px;
-      border: none;
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    /* Modal Styles */
-    #modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #modal-overlay.open {
-      display: flex;
-    }
-
-    #modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 0.5rem;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    #modal-close {
-      margin-top: 1.5rem;
-      padding: 0.5rem 1rem;
-      background: #eee;
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    
-    #modal-close:hover {
-      background: #e2e2e2;
-    }
-
-    /* ========== END AI-EDITABLE: HERO STYLES ========== */
-  </style>
-</head>
-<body>
-  <main>
-    <!-- ========== AI-EDITABLE: HERO CONTENT ========== -->
-    <!-- AI: You may update text and structure inside this hero section. -->
-    <section id="hero">
-      <h1 id="hero-title">It's Alive!!</h1>
-      <p id="hero-subtitle">
-        Describe your change in plain English. Our AI updates the code and ships it to production.
-      </p>
-      <button id="hero-cta">Call Now!</button>
-    </section>
-
-    <!-- Modal Structure -->
-    <div id="modal-overlay">
-      <div id="modal-content">
-        <h2>Voice Instructions</h2>
-        <p>You call in and give a voice bot instructions to edit the site.</p>
-        <button id="modal-close">Close</button>
-      </div>
-    </div>
-    <!-- ========== END AI-EDITABLE: HERO CONTENT ========== -->
-
-    <!-- You can add more static sections here that AI should mostly leave alone. -->
-  </main>
-
-  <script>
-    // ========== AI-EDITABLE: INTERACTIVITY ==========
-    // AI: You may update this script to change copy/behavior of the demo interactions,
-    // but do not introduce external dependencies or complex frameworks.
-
-    const cta = document.getElementById('hero-cta');
-    const modal = document.getElementById('modal-overlay');
-    const closeBtn = document.getElementById('modal-close');
-
-    if (cta && modal && closeBtn) {
-      cta.addEventListener('click', () => {
-        modal.classList.add('open');
-      });
-
-      closeBtn.addEventListener('click', () => {
-        modal.classList.remove('open');
-      });
-
-      // Close modal when clicking outside the content box
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('open');
-        }
-      });
-    }
-
-    // ========== END AI-EDITABLE: INTERACTIVITY ==========
-  </script>
-</body>
-</html>
+      padding: 4rem 2rem;
+      border-radius: 1.5rem;
+      background: var(--card-bg);
+      box-shadow: 0 20px
