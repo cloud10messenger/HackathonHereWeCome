@@ -75,7 +75,7 @@
       border-radius: 1rem;
       box-shadow: var(--shadow);
       text-align: center;
-      max-width: 900px; /* Widened for cards */
+      max-width: 1000px; /* Widened for 5 cards */
       width: 100%;
       border: 1px solid var(--border);
       transition: transform 0.3s ease;
@@ -108,7 +108,7 @@
     /* Process Grid Styles */
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.5rem;
       margin-bottom: 3rem;
       text-align: left;
@@ -153,7 +153,7 @@
     }
 
     .card p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin: 0;
       color: var(--text-muted);
       line-height: 1.5;
@@ -195,35 +195,42 @@
 
   <div class="container">
     <h1>Hostinger Hackathon Cloud 10 Demo</h1>
-    <p class="subtitle">Just pure automation. No human in the loop.</p>
+    <p class="subtitle">The complete automated pipeline: Voice to Deploy.</p>
 
     <div class="process-grid">
       <!-- Step 1 -->
       <div class="card">
-        <div class="card-icon">🗣️</div>
-        <h3>1. User Input</h3>
-        <p>End user speaks plain English (voice coming soon) to describe the change.</p>
+        <div class="card-icon">🎙️</div>
+        <h3>1. Voice AI</h3>
+        <p>User speaks instructions. Voice AI captures the intent and triggers the n8n webhook.</p>
       </div>
 
       <!-- Step 2 -->
       <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>2. Gemini AI</h3>
-        <p>Interprets the request, understands the context, and rewrites the code.</p>
+        <div class="card-icon">⚡</div>
+        <h3>2. n8n Workflow</h3>
+        <p>n8n acts as the brain, receiving the request and orchestrating the data flow.</p>
       </div>
 
       <!-- Step 3 -->
       <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>3. n8n Automation</h3>
-        <p>Orchestrates the workflow and commits the changes directly to GitHub.</p>
+        <div class="card-icon">🧠</div>
+        <h3>3. Gemini Code</h3>
+        <p>n8n calls Gemini to interpret the request and generate the updated code.</p>
       </div>
 
       <!-- Step 4 -->
       <div class="card">
+        <div class="card-icon">🐙</div>
+        <h3>4. GitHub Sync</h3>
+        <p>n8n commits the new code directly to the GitHub repository automatically.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card">
         <div class="card-icon">🚀</div>
-        <h3>4. Hostinger Deploy</h3>
-        <p>Deploys live instantly. Site updates itself. No dev needed.</p>
+        <h3>5. Hostinger</h3>
+        <p>Hostinger detects the commit and instantly deploys the new version live.</p>
       </div>
     </div>
 
