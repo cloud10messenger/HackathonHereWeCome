@@ -149,12 +149,12 @@
     .card h3 {
       margin: 0 0 0.5rem 0;
       color: var(--primary);
-      font-size: 1.1rem;
+      font-size: 1.3rem; /* Increased font size */
       font-family: 'JetBrains Mono', monospace;
     }
 
     .card p {
-      font-size: 0.85rem;
+      font-size: 1rem; /* Increased font size */
       margin: 0;
       color: var(--text-muted);
       line-height: 1.5;
@@ -237,6 +237,50 @@
 
     <div class="highlight-box font-mono">
       No support ticket. No waiting. Just pure automation.
+    </div>
+
+    <!-- Live Demo Section -->
+    <div class="mt-10 pt-8 border-t border-white/10">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+        </span>
+        <h2 class="text-2xl font-bold text-white m-0">LIVE DEMO</h2>
+      </div>
+      
+      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+        This is a live system. You can call the number below, ask for a modification to this page, and the AI agent will process it, code it, and deploy it automatically.
+      </p>
+
+      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 inline-block">
+        <p class="text-sm text-indigo-300 uppercase tracking-wider font-bold mb-2">Call to Modify</p>
+        <div class="font-mono text-3xl text-white font-bold mb-2">
+          +1 (555) 000-0000
+        </div>
+        <p class="text-xs text-gray-500">
+          (Placeholder Number)
+        </p>
+      </div>
+
+      <p class="mt-6 text-sm text-gray-400">
+        After the call, wait a few minutes and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline">refresh this page</a> to see your changes.
+      </p>
+    </div>
+
+    <!-- Powered By Section -->
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <p class="text-sm text-indigo-300 uppercase tracking-widest font-bold mb-6 font-mono">Powered By</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">n8n</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">Hostinger</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">GitHub</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">Gemini</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">Telnyx</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">ElevenLabs</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">OpenAI</span>
+        <span class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors cursor-default">Anthropic</span>
+      </div>
     </div>
 
   </div>
