@@ -28,17 +28,19 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
     }
 
     /* AI-EDITABLE: Component Styles */
     .container {
       background: var(--surface);
-      padding: 2.5rem;
+      padding: 3rem;
       border-radius: 1.5rem;
       box-shadow: var(--shadow);
       text-align: center;
-      max-width: 500px;
-      width: 90%;
+      max-width: 900px; /* Widened for cards */
+      width: 100%;
       border: 1px solid rgba(255, 255, 255, 0.5);
       transition: transform 0.3s ease;
     }
@@ -49,43 +51,144 @@
 
     h1 {
       margin-top: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
       background: linear-gradient(to right, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
     }
 
-    p {
+    .subtitle {
+      font-size: 1.1rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      margin-bottom: 3rem;
+      font-weight: 500;
+    }
+
+    /* Process Grid Styles */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .card {
+      background: rgba(248, 250, 252, 0.8);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #e0e7ff, #fff);
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .highlight-box {
+      background: linear-gradient(to right, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+      padding: 1.5rem;
+      border-radius: 1rem;
       margin-bottom: 2rem;
+      color: var(--text);
+      font-weight: 500;
     }
 
     .btn {
       background: var(--primary);
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s;
+      box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
     }
 
     .btn:hover {
       background: var(--primary-hover);
+      transform: scale(1.05);
+      box-shadow: 0 6px 10px rgba(99, 102, 241, 0.4);
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>rob is awesome</h1>
-    <p>Welcome to the demo page. The site has been restored and is fully operational.</p>
+    <h1>Cloud10 AI Web Design Orchestrator v1</h1>
+    <p class="subtitle">Just pure automation. No human in the loop.</p>
+
+    <div class="process-grid">
+      <!-- Step 1 -->
+      <div class="card">
+        <div class="card-icon">🗣️</div>
+        <h3>1. User Input</h3>
+        <p>End user speaks plain English (voice coming soon) to describe the change.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>2. Gemini AI</h3>
+        <p>Interprets the request, understands the context, and rewrites the code.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>3. n8n Automation</h3>
+        <p>Orchestrates the workflow and commits the changes directly to GitHub.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>4. Hostinger Deploy</h3>
+        <p>Deploys live instantly. Site updates itself. No dev needed.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      No support ticket. No waiting. Just pure automation.
+    </div>
+
     <button class="btn" id="actionBtn">Launch Demo</button>
-    <p id="output" style="margin-top: 1.5rem; font-size: 0.9rem; min-height: 1.2em;"></p>
+    <p id="output" style="margin-top: 1.5rem; font-size: 0.9rem; min-height: 1.2em; font-weight: 600;"></p>
   </div>
 
   <script>
