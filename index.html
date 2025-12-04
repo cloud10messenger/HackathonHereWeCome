@@ -41,4 +41,106 @@
       padding: 4rem 2rem;
       border-radius: 1.5rem;
       background: var(--card-bg);
-      box-shadow: 0 20px
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    #hero p {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* ========== AI-EDITABLE: FEATURES STYLES ========== */
+    /* AI: You may update styles in this block when changing features appearance. */
+    #features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- ========== AI-EDITABLE: HERO SECTION ========== -->
+    <section id="hero">
+      <h1>Build Faster with AI</h1>
+      <p>Generate landing pages, adjust styles, and deploy in seconds. This is a demo of an auto-generated site structure.</p>
+      <button class="btn-primary" id="cta-btn">Get Started</button>
+    </section>
+
+    <!-- ========== AI-EDITABLE: FEATURES SECTION ========== -->
+    <section id="features">
+      <div class="feature-card">
+        <h3>Instant Setup</h3>
+        <p>No complex build steps. Just a single HTML file ready to go.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Smart Styling</h3>
+        <p>Modern CSS variables and responsive layouts included by default.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Easy Customization</h3>
+        <p>Edit specific blocks to change content without breaking the layout.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ========== AI-EDITABLE: JS ========== */
+    // Simple interaction for the CTA button
+    const ctaBtn = document.getElementById('cta-btn');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', () => {
+        alert('Welcome! This is a demo interaction.');
+      });
+    }
+  </script>
