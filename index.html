@@ -24,4 +24,73 @@
       background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
       background-size: 24px 24px;
       color: var(--text);
-      min-
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* AI-EDITABLE: Component Styles */
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AI-EDITABLE: Main Content -->
+  <div class="container">
+    <h1>Cloud 10 Demo</h1>
+    <p>The file has been successfully repaired. You can now proceed with the hackathon demo.</p>
+    <button id="actionBtn" class="btn">Test Interaction</button>
+    <p id="statusMsg" style="margin-top: 1rem; font-size: 0.875rem; min-height: 1.5em;"></p>
+  </div>
+
+  <script>
+    /* ========== INTERACTIVITY (AI MAY UPDATE IF REQUESTED) ========== */
+    const btn = document.getElementById('actionBtn');
+    const statusMsg = document.getElementById('statusMsg');
+
+    if (btn) {
+      btn.addEventListener('click', () => {
+        statusMsg.textContent = "System operational. JavaScript is working!";
+        statusMsg.style.color = "var(--primary)";
+      });
+    }
+  </script>
+</body>
+</html>
