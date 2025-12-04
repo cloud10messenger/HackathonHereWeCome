@@ -2,97 +2,247 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Auto-Site Demo</title>
+  <title>Cloud 10 Hackathon Demo</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Integration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#818cf8',
+            secondary: '#f472b6',
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
     /* ========== GLOBAL STYLES (AI MAY UPDATE IF REQUESTED) ========== */
     :root {
-      --primary: #1b6dc1;
-      --accent: #ee8339;
-      --bg: #f5f7fb;
-      --text: #151c23;
+      /* Tech / Dark Mode Palette */
+      --primary: #818cf8; /* Indigo 400 */
+      --primary-hover: #a5b4fc; /* Indigo 300 */
+      --secondary: #f472b6; /* Pink 400 */
+      --bg-color: #0f172a; /* Slate 900 */
+      --surface: rgba(30, 41, 59, 0.7); /* Slate 800 glass */
+      --text: #f1f5f9; /* Slate 100 */
+      --text-muted: #94a3b8; /* Slate 400 */
+      --shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      --border: rgba(255, 255, 255, 0.1);
     }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      /* Tech Grid Background */
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
       color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
     }
 
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    button {
-      cursor: pointer;
-    }
-
-    /* ========== AI-EDITABLE: HERO STYLES ========== */
-    /* AI: You may update styles in this block when changing hero appearance. */
-    #hero {
-      padding: 3rem 2rem;
+    /* AI-EDITABLE: Component Styles */
+    .container {
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 3rem;
       border-radius: 1rem;
-      background: white;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      box-shadow: var(--shadow);
       text-align: center;
+      max-width: 1000px; /* Widened for 5 cards */
+      width: 100%;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease;
     }
 
-    #hero-title {
-      font-size: 2.5rem;
+    .container:hover {
+      transform: translateY(-2px);
+      border-color: rgba(129, 140, 248, 0.3);
+    }
+
+    .container h1 {
+      margin-top: 0;
+      font-size: 4rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 2rem; /* Significantly increased size */
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Process Grid Styles */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(30, 41, 59, 0.9);
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.25);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      font-size: 2rem;
       margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(129, 140, 248, 0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(129, 140, 248, 0.2);
+      box-shadow: 0 0 10px rgba(129, 140, 248, 0.1);
     }
 
-    #hero-subtitle {
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--primary);
       font-size: 1.1rem;
-      opacity: 0.8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .highlight-box {
+      background: rgba(15, 23, 42, 0.8);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
       margin-bottom: 2rem;
+      color: var(--text);
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--secondary);
     }
 
-    #hero-cta {
-      padding: 0.9rem 1.8rem;
-      border-radius: 999px;
-      border: none;
+    .btn {
       background: var(--primary);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
+      color: #0f172a;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 0 15px rgba(129, 140, 248, 0.4);
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    /* ========== END AI-EDITABLE: HERO STYLES ========== */
+    .btn:hover {
+      background: var(--primary-hover);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(129, 140, 248, 0.6);
+    }
   </style>
 </head>
-<body>
-  <main>
-    <!-- ========== AI-EDITABLE: HERO CONTENT ========== -->
-    <!-- AI: You may update text and structure inside this hero section. -->
-    <section id="hero">
-      <h1 id="hero-title">We deploy your website changes automatically.</h1>
-      <p id="hero-subtitle">
-        Describe your change in plain English. Our AI updates the code and ships it to production.
-      </p>
-      <button id="hero-cta">Book a demo</button>
-    </section>
-    <!-- ========== END AI-EDITABLE: HERO CONTENT ========== -->
+<body class="font-sans">
 
-    <!-- You can add more static sections here that AI should mostly leave alone. -->
-  </main>
+  <div class="container">
+    <h1>Hostinger Hackathon Cloud 10 Demo</h1>
+    <p class="subtitle">The complete automated pipeline: Voice to Deploy.</p>
+
+    <div class="process-grid">
+      <!-- Step 1 -->
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>1. Voice AI</h3>
+        <p>User speaks instructions. Voice AI captures the intent and triggers the n8n webhook.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>2. n8n Workflow</h3>
+        <p>n8n acts as the brain, receiving the request and orchestrating the data flow.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>3. Gemini Code</h3>
+        <p>n8n calls Gemini to interpret the request and generate the updated code.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card">
+        <div class="card-icon">🐙</div>
+        <h3>4. GitHub Sync</h3>
+        <p>n8n commits the new code directly to the GitHub repository automatically.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>5. Hostinger</h3>
+        <p>Hostinger detects the commit and instantly deploys the new version live.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box font-mono">
+      No support ticket. No waiting. Just pure automation.
+    </div>
+
+  </div>
 
   <script>
-    // ========== AI-EDITABLE: INTERACTIVITY ==========
-    // AI: You may update this script to change copy/behavior of the demo interactions,
-    // but do not introduce external dependencies or complex frameworks.
-
-    const cta = document.getElementById('hero-cta');
-    if (cta) {
-      cta.addEventListener('click', () => {
-        alert('Imagine this opens a real scheduling link. 😉');
-      });
-    }
-
-    // ========== END AI-EDITABLE: INTERACTIVITY ==========
+    // Button removed
   </script>
 </body>
 </html>
