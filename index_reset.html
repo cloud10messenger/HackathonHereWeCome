@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cloud 10 Hackathon Demo</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Integration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#818cf8',
+            secondary: '#f472b6',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ========== GLOBAL STYLES (AI MAY UPDATE IF REQUESTED) ========== */
+    :root {
+      /* Tech / Dark Mode Palette */
+      --primary: #818cf8; /* Indigo 400 */
+      --primary-hover: #a5b4fc; /* Indigo 300 */
+      --secondary: #f472b6; /* Pink 400 */
+      --bg-color: #0f172a; /* Slate 900 */
+      --surface: rgba(30, 41, 59, 0.7); /* Slate 800 glass */
+      --text: #f1f5f9; /* Slate 100 */
+      --text-muted: #94a3b8; /* Slate 400 */
+      --shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      /* Tech Grid Background */
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* AI-EDITABLE: Component Styles */
+    .container {
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 1000px; /* Widened for 5 cards */
+      width: 100%;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-2px);
+      border-color: rgba(129, 140, 248, 0.3);
+    }
+
+    .container h1 {
+      margin-top: 0;
+      font-size: 4rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 2rem; /* Significantly increased size */
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Process Grid Styles */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(30, 41, 59, 0.9);
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.25);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(129, 140, 248, 0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(129, 140, 248, 0.2);
+      box-shadow: 0 0 10px rgba(129, 140, 248, 0.1);
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--primary);
+      font-size: 1.3rem; /* Increased font size */
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card p {
+      font-size: 1rem; /* Increased font size */
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .highlight-box {
+      background: rgba(15, 23, 42, 0.8);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--secondary);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #0f172a;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 0 15px rgba(129, 140, 248, 0.4);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(129, 140, 248, 0.6);
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <div class="container">
+    <h1>Hostinger Hackathon Cloud 10 Demo</h1>
+    <p class="subtitle">The complete automated pipeline: Voice to Deploy.</p>
+
+    <div class="process-grid">
+      <!-- Step 1 -->
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>1. Voice AI</h3>
+        <p>User speaks instructions. Voice AI captures the intent and triggers the n8n webhook.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>2. n8n Workflow</h3>
+        <p>n8n acts as the brain, receiving the request and orchestrating the data flow.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>3. Gemini Code</h3>
+        <p>n8n calls Gemini to interpret the request and generate the updated code.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card">
+        <div class="card-icon">🐙</div>
+        <h3>4. GitHub Sync</h3>
+        <p>n8n commits the new code directly to the GitHub repository automatically.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>5. Hostinger</h3>
+        <p>Hostinger detects the commit and instantly deploys the new version live.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box font-mono">
+      No support ticket. No waiting. Just pure automation.
+    </div>
+
+    <!-- Live Demo Section -->
+    <div class="mt-10 pt-8 border-t border-white/10">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+        </span>
+        <h2 class="text-2xl font-bold text-white m-0">LIVE DEMO</h2>
+      </div>
+      
+      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+        This is a live system. You can call the number below, ask for a modification to this page, and the AI agent will process it, code it, and deploy it automatically.
+      </p>
+
+      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 inline-block">
+        <p class="text-sm text-indigo-300 uppercase tracking-wider font-bold mb-2">Call to Modify</p>
+        <div class="font-mono text-3xl text-white font-bold mb-2">
+          +1 (555) 000-0000
+        </div>
+        <p class="text-xs text-gray-500">
+          (Placeholder Number)
+        </p>
+      </div>
+
+      <p class="mt-6 text-sm text-gray-400">
+        After the call, wait a few minutes and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline">refresh this page</a> to see your changes.
+      </p>
+    </div>
+
+    <!-- Powered By Section -->
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <p class="text-sm text-indigo-300 uppercase tracking-widest font-bold mb-6 font-mono">Powered By</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="https://n8n.io" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">n8n</a>
+        <a href="https://www.hostinger.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Hostinger</a>
+        <a href="https://github.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">GitHub</a>
+        <a href="https://ai.google.dev" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Gemini</a>
+        <a href="https://telnyx.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Telnyx</a>
+        <a href="https://elevenlabs.io" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">ElevenLabs</a>
+        <a href="https://openai.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">OpenAI</a>
+        <a href="https://www.anthropic.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Anthropic</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Button removed
+  </script>
+</body>
+</html>
