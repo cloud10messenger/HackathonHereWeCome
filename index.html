@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cloud 10 Hackathon Demo</title>
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
@@ -36,7 +35,7 @@
       --primary: #818cf8; /* Indigo 400 */
       --primary-hover: #a5b4fc; /* Indigo 300 */
       --secondary: #f472b6; /* Pink 400 */
-      --bg-color: pink; /* Updated to pink */
+      --bg-color: #0f172a; /* Slate 900 */
       --surface: rgba(30, 41, 59, 0.7); /* Slate 800 glass */
       --text: #f1f5f9; /* Slate 100 */
       --text-muted: #94a3b8; /* Slate 400 */
@@ -191,32 +190,12 @@
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(129, 140, 248, 0.6);
     }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      body {
-        padding: 1rem;
-      }
-      .container {
-        padding: 1.5rem;
-      }
-      .container h1 {
-        font-size: 2.5rem;
-      }
-      .subtitle {
-        font-size: 1.25rem;
-        margin-bottom: 2rem;
-      }
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body class="font-sans">
 
   <div class="container">
-    <h1>Rob is a big, very clean princess</h1>
+    <h1>Hostinger Hackathon Cloud 10 Demo</h1>
     <p class="subtitle">The complete automated pipeline: Voice to Deploy.</p>
 
     <div class="process-grid">
@@ -274,9 +253,9 @@
         This is a live system. You can call the number below, ask for a modification to this page, and the AI agent will process it, code it, and deploy it automatically.
       </p>
 
-      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-4 md:p-6 inline-block">
+      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 inline-block">
         <p class="text-sm text-indigo-300 uppercase tracking-wider font-bold mb-2">Call to Modify</p>
-        <div class="font-mono text-xl sm:text-2xl md:text-3xl text-white font-bold mb-2">
+        <div class="font-mono text-3xl text-white font-bold mb-2">
           +1 (315) 549-2545
         </div>
       </div>
@@ -284,16 +263,6 @@
       <p class="mt-6 text-sm text-gray-400">
         After the call, wait a few minutes and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline">refresh this page</a> to see your changes.
       </p>
-    </div>
-
-    <!-- Reset Functionality Section -->
-    <div class="mt-8">
-      <div class="bg-slate-900/30 border border-slate-700/50 rounded-lg p-4 max-w-lg mx-auto backdrop-blur-sm">
-        <h3 class="text-indigo-300 font-mono text-sm font-bold mb-2">Reset Functionality</h3>
-        <p class="text-sm text-slate-400">
-          Need to start over? Just ask the agent to <span class="text-white font-medium">"reset the website"</span>. The system will recognize the command and automatically revert the page to its original state.
-        </p>
-      </div>
     </div>
 
     <!-- Powered By Section -->
