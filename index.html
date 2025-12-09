@@ -16,12 +16,12 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Georgia', 'serif'],
+            mono: ['Courier New', 'monospace'],
           },
           colors: {
-            primary: '#818cf8',
-            secondary: '#f472b6',
+            primary: '#8b4513',
+            secondary: '#cd853f',
           }
         }
       }
@@ -31,27 +31,30 @@
   <style>
     /* ========== GLOBAL STYLES (AI MAY UPDATE IF REQUESTED) ========== */
     :root {
-      /* Tech / Dark Mode Palette */
-      --primary: #818cf8; /* Indigo 400 */
-      --primary-hover: #a5b4fc; /* Indigo 300 */
-      --secondary: #f472b6; /* Pink 400 */
-      --bg-color: #0f172a; /* Slate 900 */
-      --surface: rgba(30, 41, 59, 0.7); /* Slate 800 glass */
-      --text: #f1f5f9; /* Slate 100 */
-      --text-muted: #94a3b8; /* Slate 400 */
-      --shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-      --border: rgba(255, 255, 255, 0.1);
+      /* 1800s Country Store Palette */
+      --primary: #8b4513; /* Saddle Brown */
+      --primary-hover: #a0522d; /* Sienna */
+      --secondary: #cd853f; /* Peru */
+      --bg-color: #deb887; /* Burlywood (Wood color base) */
+      --surface: #fdf5e6; /* Old Lace (Parchment) */
+      --text: #3e2723; /* Dark Brown */
+      --text-muted: #5d4037; /* Brown */
+      --shadow: 0 4px 8px rgba(62, 39, 35, 0.3);
+      --border: #8b4513;
     }
 
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Georgia', serif;
       background-color: var(--bg-color);
-      /* Tech Grid Background */
+      /* Wood Plank Background */
       background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 30px 30px;
+        repeating-linear-gradient(90deg, 
+          #deb887 0px, 
+          #deb887 40px, 
+          #d2b48c 40px, 
+          #d2b48c 80px
+        );
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -63,47 +66,70 @@
     }
 
     .font-mono {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Courier New', monospace;
     }
 
     /* AI-EDITABLE: Component Styles */
     .container {
       background: var(--surface);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      /* Parchment texture effect using radial gradient */
+      background-image: radial-gradient(#fdf5e6, #faebd7);
       padding: 3rem;
-      border-radius: 1rem;
-      box-shadow: var(--shadow);
+      border-radius: 4px;
+      box-shadow: 
+        0 0 0 4px #fdf5e6,
+        0 0 0 8px var(--border),
+        10px 10px 20px rgba(0,0,0,0.4);
       text-align: center;
-      max-width: 1000px; /* Widened for 5 cards */
+      max-width: 1000px;
       width: 100%;
-      border: 1px solid var(--border);
+      border: 2px solid var(--border);
       transition: transform 0.3s ease;
+      position: relative;
     }
+    
+    /* Nail heads in corners */
+    .container::before, .container::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      width: 12px;
+      height: 12px;
+      background: #3e2723;
+      border-radius: 50%;
+      box-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+    }
+    .container::before { left: 12px; }
+    .container::after { right: 12px; }
 
     .container:hover {
       transform: translateY(-2px);
-      border-color: rgba(129, 140, 248, 0.3);
     }
 
     .container h1 {
       margin-top: 0;
-      font-size: 4rem;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 3.5rem;
+      color: var(--primary);
+      background: none;
+      -webkit-text-fill-color: initial;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-      text-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+      letter-spacing: 0.05em;
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
       line-height: 1.1;
+      font-family: 'Georgia', serif;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 10px;
     }
 
     .subtitle {
-      font-size: 2rem; /* Significantly increased size */
+      font-size: 1.5rem;
       color: var(--text-muted);
       margin-bottom: 3rem;
       font-weight: 500;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Courier New', monospace;
+      font-style: italic;
     }
 
     /* Process Grid Styles */
@@ -116,19 +142,20 @@
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.6);
+      background: #fff8dc; /* Cornsilk */
       padding: 1.5rem;
-      border-radius: 0.75rem;
+      border-radius: 2px;
       border: 1px solid var(--border);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      background: rgba(30, 41, 59, 0.9);
-      box-shadow: 0 0 20px rgba(129, 140, 248, 0.25);
+      transform: translateY(-3px);
+      background: #faebd7;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
       border-color: var(--primary);
     }
 
@@ -140,103 +167,134 @@
       justify-content: center;
       width: 50px;
       height: 50px;
-      background: rgba(129, 140, 248, 0.1);
-      border-radius: 10px;
-      border: 1px solid rgba(129, 140, 248, 0.2);
-      box-shadow: 0 0 10px rgba(129, 140, 248, 0.1);
+      background: rgba(139, 69, 19, 0.1);
+      border-radius: 50%;
+      border: 1px dashed var(--primary);
+      box-shadow: none;
     }
 
     .card h3 {
       margin: 0 0 0.5rem 0;
       color: var(--primary);
-      font-size: 1.3rem; /* Increased font size */
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem;
+      font-family: 'Georgia', serif;
+      border-bottom: 1px dotted var(--primary);
+      padding-bottom: 5px;
     }
 
     .card p {
-      font-size: 1rem; /* Increased font size */
+      font-size: 1rem;
       margin: 0;
-      color: var(--text-muted);
+      color: var(--text);
       line-height: 1.5;
+      font-family: 'Courier New', monospace;
     }
 
     .highlight-box {
-      background: rgba(15, 23, 42, 0.8);
+      background: #fff8dc;
       padding: 1.5rem;
-      border-radius: 0.5rem;
+      border-radius: 0;
       margin-bottom: 2rem;
       color: var(--text);
-      font-weight: 500;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--secondary);
+      font-weight: bold;
+      border: 2px solid var(--primary);
+      border-left: 6px solid var(--primary);
+      font-family: 'Courier New', monospace;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
     }
 
     .btn {
       background: var(--primary);
-      color: #0f172a;
-      border: none;
+      color: #fff8dc;
+      border: 2px solid #3e2723;
       padding: 1rem 2rem;
-      border-radius: 0.5rem;
+      border-radius: 4px;
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
-      box-shadow: 0 0 15px rgba(129, 140, 248, 0.4);
-      font-family: 'JetBrains Mono', monospace;
+      box-shadow: 2px 2px 0 #3e2723;
+      font-family: 'Georgia', serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .btn:hover {
       background: var(--primary-hover);
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(129, 140, 248, 0.6);
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #3e2723;
+    }
+    
+    /* Utility overrides for Tailwind classes used in HTML to enforce theme */
+    .text-white { color: #3e2723 !important; }
+    .text-gray-300 { color: #5d4037 !important; }
+    .text-gray-400 { color: #5d4037 !important; }
+    .text-indigo-300 { color: #8b4513 !important; }
+    .text-indigo-400 { color: #a0522d !important; }
+    .bg-slate-900\/50 { background-color: rgba(139, 69, 19, 0.1) !important; }
+    .border-indigo-500\/30 { border-color: rgba(139, 69, 19, 0.3) !important; }
+    .border-white\/10 { border-color: rgba(139, 69, 19, 0.2) !important; }
+    .bg-slate-800 { background-color: #fff8dc !important; }
+    .border-slate-600 { border-color: #8b4513 !important; }
+    .text-slate-200 { color: #3e2723 !important; }
+    
+    /* Animation override */
+    .animate-ping {
+      background-color: #cd853f !important;
+    }
+    .bg-red-500 {
+      background-color: #8b4513 !important;
+    }
+    .bg-red-400 {
+      background-color: #cd853f !important;
     }
   </style>
 </head>
 <body class="font-sans">
 
   <div class="container">
-    <h1>Hostinger Hackathon Cloud 10 Demo</h1>
-    <p class="subtitle">The complete automated pipeline: Voice to Deploy.</p>
+    <h1>Hostinger General Store</h1>
+    <p class="subtitle">Automated Pipeline: Voice to Dispatch</p>
 
     <div class="process-grid">
       <!-- Step 1 -->
       <div class="card">
         <div class="card-icon">🎙️</div>
-        <h3>1. Voice AI</h3>
-        <p>User speaks instructions. Voice AI captures the intent and triggers the n8n webhook.</p>
+        <h3>1. Voice Order</h3>
+        <p>Customer speaks instructions. The apparatus captures the intent and triggers the wire.</p>
       </div>
 
       <!-- Step 2 -->
       <div class="card">
         <div class="card-icon">⚡</div>
-        <h3>2. n8n Workflow</h3>
-        <p>n8n acts as the brain, receiving the request and orchestrating the data flow.</p>
+        <h3>2. n8n Switchboard</h3>
+        <p>n8n acts as the operator, receiving the request and routing the data flow.</p>
       </div>
 
       <!-- Step 3 -->
       <div class="card">
         <div class="card-icon">🧠</div>
-        <h3>3. Gemini Code</h3>
-        <p>n8n calls Gemini to interpret the request and generate the updated code.</p>
+        <h3>3. Gemini Clerk</h3>
+        <p>n8n calls Gemini to interpret the request and draft the new ledger entries (code).</p>
       </div>
 
       <!-- Step 4 -->
       <div class="card">
-        <div class="card-icon">🐙</div>
-        <h3>4. GitHub Sync</h3>
-        <p>n8n commits the new code directly to the GitHub repository automatically.</p>
+        <div class="card-icon">📦</div>
+        <h3>4. GitHub Ledger</h3>
+        <p>n8n files the new records directly to the GitHub archives automatically.</p>
       </div>
 
       <!-- Step 5 -->
       <div class="card">
-        <div class="card-icon">🚀</div>
-        <h3>5. Hostinger</h3>
-        <p>Hostinger detects the commit and instantly deploys the new version live.</p>
+        <div class="card-icon">🐎</div>
+        <h3>5. Hostinger Delivery</h3>
+        <p>Hostinger detects the new filing and instantly opens the shop with new stock.</p>
       </div>
     </div>
 
     <div class="highlight-box font-mono">
-      No support ticket. No waiting. Just pure automation.
+      No waiting in line. No paper forms. Just pure steam-powered automation.
     </div>
 
     <!-- Live Demo Section -->
@@ -246,28 +304,28 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
         </span>
-        <h2 class="text-2xl font-bold text-white m-0">LIVE DEMO</h2>
+        <h2 class="text-2xl font-bold text-white m-0" style="font-family: 'Georgia', serif; text-transform: uppercase; letter-spacing: 2px;">Live Telegraph</h2>
       </div>
       
-      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-        This is a live system. You can call the number below, ask for a modification to this page, and the AI agent will process it, code it, and deploy it automatically.
+      <p class="text-gray-300 mb-6 max-w-2xl mx-auto font-mono">
+        This is a live wire. You can ring the number below, request a modification to this broadsheet, and the automated clerk will process it, scribe it, and post it automatically.
       </p>
 
-      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 inline-block">
-        <p class="text-sm text-indigo-300 uppercase tracking-wider font-bold mb-2">Call to Modify</p>
-        <div class="font-mono text-3xl text-white font-bold mb-2">
+      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 inline-block" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmOGRjIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNkMmI0OGMiLz4KPC9zdmc+'); border: 3px double #8b4513;">
+        <p class="text-sm text-indigo-300 uppercase tracking-wider font-bold mb-2" style="color: #8b4513;">Ring for Service</p>
+        <div class="font-mono text-3xl text-white font-bold mb-2" style="color: #3e2723;">
           +1 (315) 549-2545
         </div>
       </div>
 
       <p class="mt-6 text-sm text-gray-400">
-        After the call, wait a few minutes and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline">refresh this page</a> to see your changes.
+        After the call, wait a spell and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline" style="color: #8b4513; font-weight: bold;">refresh this broadsheet</a> to see your changes.
       </p>
     </div>
 
     <!-- Powered By Section -->
     <div class="mt-12 pt-8 border-t border-white/10">
-      <p class="text-sm text-indigo-300 uppercase tracking-widest font-bold mb-6 font-mono">Powered By</p>
+      <p class="text-sm text-indigo-300 uppercase tracking-widest font-bold mb-6 font-mono" style="color: #8b4513;">Supplied By</p>
       <div class="flex flex-wrap justify-center gap-3">
         <a href="https://n8n.io" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">n8n</a>
         <a href="https://www.hostinger.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Hostinger</a>
