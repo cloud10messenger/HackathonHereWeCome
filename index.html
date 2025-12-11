@@ -320,11 +320,50 @@
     @media (max-width: 600px) {
       .check-amount { font-size: 2rem; }
     }
+
+    /* Navigation Header */
+    .header-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .nav-btn {
+      background-color: #fff;
+      border: 1px solid var(--primary);
+      color: var(--secondary);
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    .nav-btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    /* Weasel Cursor */
+    .weasel-btn:hover {
+      cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext x='50%25' y='50%25' font-size='24' text-anchor='middle' dominant-baseline='middle'%3E🦦%3C/text%3E%3C/svg%3E"), pointer;
+    }
   </style>
 </head>
 <body class="font-sans">
 
   <div class="container">
+    <nav class="header-nav">
+      <a href="weasel.html" class="nav-btn weasel-btn">The Weasel</a>
+      <a href="security.html" class="nav-btn">Security</a>
+      <a href="vault.html" class="nav-btn">The Vault</a>
+    </nav>
+
     <h1>Postinger Bank</h1>
     <p class="subtitle">Secure Automated Pipeline: Voice to Ledger</p>
 
