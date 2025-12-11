@@ -126,10 +126,26 @@
     .subtitle {
       font-size: 1.5rem;
       color: var(--text-muted);
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       font-weight: 500;
       font-family: 'Courier New', monospace;
       font-style: italic;
+    }
+
+    /* Massive Icon Style */
+    .massive-icon {
+      font-size: 10rem;
+      line-height: 1;
+      margin: 1rem 0 3rem 0;
+      display: block;
+      animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 10px 5px rgba(139, 69, 19, 0.1));
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
     }
 
     /* Process Grid Styles */
@@ -255,6 +271,8 @@
   <div class="container">
     <h1>Cloud Ten</h1>
     <p class="subtitle">Automated Pipeline: Voice to Dispatch</p>
+
+    <div class="massive-icon">☁️</div>
 
     <div class="process-grid">
       <!-- Step 1 -->
