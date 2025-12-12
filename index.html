@@ -190,6 +190,27 @@
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(129, 140, 248, 0.6);
     }
+
+    /* Animation for Process Visualization */
+    @keyframes track {
+      0% { left: 2rem; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: calc(100% - 2rem); opacity: 0; }
+    }
+    .animate-track {
+      animation: track 3s linear infinite;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: var(--secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--secondary);
+      z-index: 5;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="font-sans">
@@ -267,6 +288,60 @@
       <p class="mt-6 text-sm text-gray-400">
         After the call, wait a few minutes and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline">refresh this page</a> to see your changes.
       </p>
+    </div>
+
+    <!-- Process Explanation Section -->
+    <div class="mt-12 pt-8 border-t border-white/10 text-left">
+      <h2 class="text-2xl font-bold text-white mb-6 text-center">The Automation Pipeline</h2>
+      
+      <!-- Visual Tracker -->
+      <div class="relative h-24 bg-slate-900/50 rounded-xl border border-white/5 mb-8 flex items-center justify-between px-8 overflow-hidden">
+        <!-- Track Line -->
+        <div class="absolute top-1/2 left-8 right-8 h-0.5 bg-slate-700 -translate-y-1/2"></div>
+        <!-- Moving Particle -->
+        <div class="animate-track"></div>
+        
+        <!-- Nodes -->
+        <div class="relative z-10 flex flex-col items-center gap-2">
+          <div class="w-4 h-4 bg-slate-800 border-2 border-slate-500 rounded-full bg-slate-900"></div>
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Telnyx</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center gap-2">
+          <div class="w-4 h-4 bg-slate-800 border-2 border-slate-500 rounded-full bg-slate-900"></div>
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">n8n</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center gap-2">
+          <div class="w-4 h-4 bg-slate-800 border-2 border-slate-500 rounded-full bg-slate-900"></div>
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Gemini</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center gap-2">
+          <div class="w-4 h-4 bg-slate-800 border-2 border-slate-500 rounded-full bg-slate-900"></div>
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">GitHub</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center gap-2">
+          <div class="w-4 h-4 bg-slate-800 border-2 border-slate-500 rounded-full bg-slate-900"></div>
+          <span class="text-[10px] text-gray-400 uppercase font-mono tracking-wider">Hostinger</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/30 rounded-xl p-6 border border-white/5 font-mono text-sm">
+        <p class="text-gray-300 mb-3">
+          <span class="text-primary font-bold">1.</span> 
+          Telnyx handles the call and forwards the request.
+        </p>
+        <p class="text-gray-300 mb-3">
+          <span class="text-primary font-bold">2.</span> 
+          The request is sent to <strong>n8n</strong>, which retrieves the code via a GitHub hook.
+        </p>
+        <p class="text-gray-300 mb-3">
+          <span class="text-primary font-bold">3.</span> 
+          Gemini processes the code request and generates updates.
+        </p>
+        <p class="text-gray-300">
+          <span class="text-primary font-bold">4.</span> 
+          Updated code is sent back via GitHub to the repository, triggering an automated build and deployment to Hostinger.
+        </p>
+      </div>
     </div>
 
     <!-- Powered By Section -->
