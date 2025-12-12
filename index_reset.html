@@ -58,7 +58,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      /* Adjusted padding for sticky banner */
+      padding: 11rem 2rem 2rem 2rem;
       box-sizing: border-box;
     }
 
@@ -215,6 +216,53 @@
 </head>
 <body class="font-sans">
 
+  <!-- Sticky Live Demo Banner -->
+  <div class="fixed top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Left: Indicator + Description -->
+      <div class="flex items-center gap-4 flex-1">
+        <div class="flex items-center gap-2 shrink-0 bg-red-500/10 px-3 py-1.5 rounded-full border border-red-500/20">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+          </span>
+          <span class="text-red-400 font-bold text-xs tracking-widest uppercase whitespace-nowrap">Live Demo</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-tight hidden sm:block">
+          This is a live system. Call the number to modify this page, and the AI agent will process it automatically.
+        </p>
+      </div>
+
+      <!-- Right: Call Button -->
+      <div class="shrink-0">
+        <div class="flex items-center gap-3 bg-indigo-600/20 border border-indigo-500/50 px-4 py-2 rounded-lg hover:bg-indigo-600/30 transition-colors cursor-pointer group shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+          <span class="text-xs text-indigo-300 uppercase font-bold tracking-wider">Call to Modify</span>
+          <span class="font-mono text-white font-bold text-lg group-hover:text-indigo-200 transition-colors">+1 (315) 549-2545</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions Bar -->
+    <div class="bg-slate-950/80 border-t border-white/5 py-2">
+      <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-gray-400 font-mono">
+        
+        <!-- Reset Instruction -->
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+          <span>Say <span class="text-secondary font-semibold">"reset the website"</span> to restore defaults</span>
+        </div>
+
+        <!-- Refresh Instruction -->
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          <span>Wait a moment & <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline decoration-indigo-500/30">refresh page</a> to see changes</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <h1>Hostinger Hackathon Cloud 10 Demo</h1>
     <p class="subtitle">The complete automated pipeline: Voice to Deploy.</p>
@@ -260,36 +308,6 @@
       No support ticket. No waiting. Just pure automation.
     </div>
 
-    <!-- Live Demo Section -->
-    <div class="mt-10 pt-8 border-t border-white/10">
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <span class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-        </span>
-        <h2 class="text-2xl font-bold text-white m-0">LIVE DEMO</h2>
-      </div>
-      
-      <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-        This is a live system. You can call the number below, ask for a modification to this page, and the AI agent will process it, code it, and deploy it automatically.
-      </p>
-
-      <div class="bg-slate-900/50 border border-indigo-500/30 rounded-xl p-6 inline-block">
-        <p class="text-sm text-indigo-300 uppercase tracking-wider font-bold mb-2">Call to Modify</p>
-        <div class="font-mono text-3xl text-white font-bold mb-2">
-          +1 (315) 549-2545
-        </div>
-      </div>
-
-      <p class="mt-4 text-sm text-gray-400">
-        To restore the original demo configuration, simply ask the AI to <span class="text-secondary font-semibold">"reset the website"</span>.
-      </p>
-
-      <p class="mt-6 text-sm text-gray-400">
-        After the call, wait a few minutes and <a href="javascript:location.reload()" class="text-indigo-400 hover:text-indigo-300 underline">refresh this page</a> to see your changes.
-      </p>
-    </div>
-
     <!-- Cloud Ten Team Section -->
     <div class="mt-12 pt-8 border-t border-white/10 md:px-12">
       <div class="flex flex-col md:flex-row items-center gap-8">
@@ -328,6 +346,7 @@
         <a href="https://ai.google.dev" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Gemini</a>
         <a href="https://telnyx.com" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">Telnyx</a>
         <a href="https://elevenlabs.io" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 border border-slate-600 text-sm text-slate-200 font-mono hover:text-indigo-400 hover:border-indigo-400 transition-colors">ElevenLabs</a>
+      </div>
     </div>
 
   </div>
