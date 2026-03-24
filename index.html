@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Integration -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" onerror="document.documentElement.style.visibility='visible'"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -316,7 +316,7 @@
         <div class="flex flex-col items-center text-center shrink-0">
             <!-- Team Logo -->
             <div class="w-40 h-40 bg-slate-800 rounded-2xl flex items-center justify-center border border-indigo-500/30 shadow-[0_0_30px_rgba(129,140,248,0.2)] mb-4 overflow-hidden p-4">
-               <img src="https://horizons-cdn.hostinger.com/85905979-7e40-4c34-b140-91cee97cfd2d/logo_c10_mci-square-removebg-preview-pChx5.png" alt="Cloud Ten Team" class="w-full h-full object-cover">
+               <img src="Cloud10%20Penny%201000x1000%20(Transparent).png" alt="Cloud Ten Team" class="w-full h-full object-cover">
             </div>
 
             <h2 class="text-3xl font-bold text-white mb-2">Cloud10 Team</h2>
@@ -352,7 +352,26 @@
   </div>
 
   <script>
-    // Button removed
+    // Safety net: force-hide any Hostinger-injected loader if resources hang
+    (function() {
+      function dismissLoader() {
+        document.querySelectorAll('[id*="preloader"], [id*="loader"], [class*="preloader"], [class*="loader-wrap"], .loader, #loading-overlay').forEach(function(el) {
+          el.style.display = 'none';
+          el.style.opacity = '0';
+          el.style.visibility = 'hidden';
+        });
+        document.body.style.overflow = '';
+        document.documentElement.style.visibility = 'visible';
+      }
+      // Dismiss on DOMContentLoaded (don't wait for all resources)
+      if (document.readyState !== 'loading') {
+        dismissLoader();
+      } else {
+        document.addEventListener('DOMContentLoaded', dismissLoader);
+      }
+      // Hard timeout fallback: 5 seconds max
+      setTimeout(dismissLoader, 5000);
+    })();
   </script>
 </body>
 </html>
